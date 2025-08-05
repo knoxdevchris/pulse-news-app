@@ -1,114 +1,73 @@
-# 📰 Pulse API
+# Pulse API
 
-**Pulse** is a modern backend API built with Java Spring Boot designed to power a mobile news application built in Flutter. The app delivers daily bite-sized news summaries and important upcoming events, focused on a younger, fast-paced audience.
-
----
-
-## 🚀 Features (MVP)
-
-- Serve curated articles with:
-  - Title
-  - Summary
-  - Category (e.g., Tech, World, Politics)
-  - “Why it matters” field
-- Serve upcoming events:
-  - Title, Description, Date
-- Clean REST API structure
-- Future: reactions, user customization, AI summaries, push notifications
+This is the backend for **Pulse**, a mobile news app built with Flutter and Spring Boot. It's designed to give younger users quick, important news updates with context and upcoming events—all in a simple, swipeable format.
 
 ---
 
-## 🧱 Tech Stack
+## What this project does
 
-- **Java 17**
-- **Spring Boot**
-- **Spring Web**
-- **Spring Data JPA**
-- **MySQL (or H2 for dev testing)**
-- **Lombok (optional)**
-- **Spring Boot DevTools**
+- Serves a daily feed of short news summaries
+- Includes a “why it matters” explanation for each story
+- Tracks upcoming important events (elections, tech drops, etc.)
+- Designed to be fast, clean, and easy to use
 
 ---
 
-## 🗂 Folder Structure
+## Tech Stack
+
+- Java 17
+- Spring Boot (Web, JPA, DevTools)
+- H2 (for now) or MySQL (later)
+- Lombok (optional)
+
+---
+
+## Project Structure
 
 ```
 src/main/java/com/pulse/pulseapi/
-├── controller/     # REST endpoints
-├── service/        # Business logic
-├── model/          # Entity classes
-├── repository/     # JPA interfaces for DB
-├── dto/            # (Optional) DTOs for clean API
-└── PulseApiApplication.java  # Main app entry point
+├── controller/     # API routes
+├── service/        # Handles logic
+├── model/          # Database entities
+├── repository/     # Database interfaces
+└── PulseApiApplication.java
 ```
 
 ---
 
-## 🔧 Setup Instructions
+## How to Run
 
-### 1. Clone & Open
-Clone the repo and open in your IDE (IntelliJ recommended).
+1. Clone the repo
+2. Open in IntelliJ or your favorite IDE
+3. Make sure `application.properties` is set up (H2 for now)
+4. Run the project
 
-### 2. Configure DB (Dev: H2, Prod: MySQL)
-
-For **H2**:
-```properties
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.hibernate.ddl-auto=update
+The API will be available at:
 ```
-
-For **MySQL**:
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/pulse
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
-spring.jpa.hibernate.ddl-auto=update
+http://localhost:8080/api
 ```
-
-### 3. Run It
-
-In your IDE or terminal:
-
-```bash
-./mvnw spring-boot:run
-```
-
-API should be live at:  
-`http://localhost:8080/api`
 
 ---
 
-## 📬 API Endpoints (Planned)
+## Planned Endpoints
 
-| Method | Endpoint             | Description                  |
-|--------|----------------------|------------------------------|
-| GET    | /api/articles        | Get all articles             |
-| GET    | /api/articles/{id}   | Get article by ID            |
-| POST   | /api/articles        | Create new article           |
-| GET    | /api/events          | Get all upcoming events      |
-| POST   | /api/events          | Create a new event           |
+- `GET /api/articles` – get all articles
+- `POST /api/articles` – create a new article
+- `GET /api/events` – get upcoming events
+- `POST /api/events` – add a new event
 
 ---
 
-## 📌 Notes
+## Notes
 
-- Frontend (Flutter) consumes these endpoints using `http` package
-- Future features: categories, saved articles, user reactions, push alerts, AI summarizer
+- This is backend only. The frontend (Flutter) will pull from these endpoints.
+- More features will be added over time (reactions, user prefs, AI summaries, etc.)
+- This is a personal project for learning and experimenting with full-stack dev
 
 ---
 
-## 🧠 Author
+## Author
 
 Chris Miller  
-- [GitHub](https://github.com/knoxdevchris)  
-- [LinkedIn](https://linkedin.com/in/chris-millerx)
-
----
-
-## 📄 License
-
-This project is open-source for learning and personal use.
+[github.com/knoxdevchris](https://github.com/knoxdevchris)  
+[linkedin.com/in/chris-millerx](https://linkedin.com/in/chris-millerx)
